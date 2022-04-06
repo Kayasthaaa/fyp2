@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9EAEA"
+    tools:context=".Profiles.ProfileDisplay"
+
+
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@id/left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/proName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="65dp"
+            android:fontFamily="@font/zen"
+            android:text="Prajesh kayastha"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/proAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="105dp"
+            android:fontFamily="@font/zen"
+            android:text="21"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginBottom="130dp"
+        android:elevation="8dp"
+        android:src="@drawable/purple"
+        app:layout_constraintBottom_toBottomOf="@id/cd"
+        app:layout_constraintLeft_toLeftOf="@id/cd"
+        app:layout_constraintRight_toRightOf="@id/cd"
+        app:layout_constraintTop_toTopOf="@id/cd" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/left"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="25dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@id/log"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toStartOf="@id/right"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/cd"
+        >
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/fav"
+        android:layout_marginRight="15dp"
+        app:lottie_autoPlay="true"
+        android:layout_marginBottom="25dp"
+        app:lottie_loop="true"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Favourites"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/yellow"
+            android:textAlignment="center"
+            android:fontFamily="@font/zen"
+            android:layout_marginTop="100dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/right"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="25dp"
+       android:layout_marginBottom="35dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/log"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/left"
+        app:layout_constraintTop_toBottomOf="@id/cd">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="25dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/list" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/zen"
+            android:text="My Listings"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="43dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toTopOf="@id/lo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/left" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lo1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="43dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:layout_constraintTop_toBottomOf="@id/log"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias=".55"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lo2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="43dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+       app:layout_constraintTop_toBottomOf="@id/lo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias=".55"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
