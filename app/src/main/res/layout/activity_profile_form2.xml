@@ -39,7 +39,7 @@
         android:id="@+id/profilePic"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/wallpaper"
+        android:src="@drawable/ic_baseline_directions_car_24"
         app:layout_constraintBottom_toTopOf="@id/UserName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

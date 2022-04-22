@@ -2,6 +2,7 @@ package com.example.fyp.RecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.fyp.AppLogin.MainActivity;
 import com.example.fyp.Favourites;
 import com.example.fyp.Profiles.Profile;
 import com.example.fyp.R;
@@ -118,6 +121,7 @@ public class HomeActivity extends AppCompatActivity{
             if (item.getAddress().toLowerCase().contains(text.toLowerCase())){
                 filteredList.add(item);
             }
+
         }
         adapter.filterList(filteredList);
     }
@@ -159,7 +163,7 @@ public class HomeActivity extends AppCompatActivity{
                 }
 
                  recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            //    recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+              //  recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
                 adapter = new Adapter(getApplicationContext(), lst, new Adapter.ItemClickListsner() {
                     @Override
                     public void onItemClick(Lists lst) {

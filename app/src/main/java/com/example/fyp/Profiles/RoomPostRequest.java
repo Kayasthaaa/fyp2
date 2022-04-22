@@ -1,5 +1,10 @@
 package com.example.fyp.Profiles;
 
+import android.media.Image;
+import android.widget.ImageView;
+
+import com.google.gson.annotations.SerializedName;
+
 public class RoomPostRequest {
 
 
@@ -11,7 +16,9 @@ public class RoomPostRequest {
     private String price;
     private boolean internet;
     private boolean parking;
-    private String photo1;
+
+    @SerializedName("photo1")
+    String photo1;
 
     private String token;
 

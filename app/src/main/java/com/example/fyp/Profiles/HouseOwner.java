@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.media.session.MediaSession;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.FileUtils;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,17 +26,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 //import com.example.fyp.ImagePost.ImageRetrofit;
 import com.example.fyp.R;
 //import com.example.fyp.RetrofitRooms;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,6 +55,7 @@ public class HouseOwner extends Fragment {
     ImageView imageView;
     private static final int PICK_Image=1;
     Button button;
+    Uri uri;
 
     private Bitmap bitmap;
 
@@ -61,12 +67,16 @@ public class HouseOwner extends Fragment {
     boolean internet = false;
     boolean parking = false;
 
+    String filePath = "";
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
 
+
     private String mParam1;
     private String mParam2;
+    private Object Part;
 
     public HouseOwner() {
         // Required empty public constructor
@@ -98,16 +108,6 @@ public class HouseOwner extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-     /*   TextView textView = view.findViewById(R.id.search);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(startActivity();));*//*
-            }
-        });*/
-
         imageView = view.findViewById(R.id.pick);
 
         a = view.findViewById(R.id.edtTitle);
@@ -125,18 +125,19 @@ public class HouseOwner extends Fragment {
             @Override
             public void onClick(View view) {
 
-           //   uploadImage();
 
-              if (TextUtils.isEmpty(a.getText().toString()) || TextUtils.isEmpty(b.getText().toString())
+                rooms();
+
+             /* if (TextUtils.isEmpty(a.getText().toString()) || TextUtils.isEmpty(b.getText().toString())
                       || TextUtils.isEmpty(c.getText().toString()) || TextUtils.isEmpty(d.getText().toString()) || TextUtils.isEmpty(e.getText().toString())
                       || TextUtils.isEmpty(f.getText().toString())){
 
                   Toast.makeText(getActivity(), "Please fill all the details", Toast.LENGTH_LONG).show();
               }
               else{
-                  rooms();
+                 // rooms();
 
-              }
+              }*/
             }
         });
 
@@ -150,12 +151,22 @@ public class HouseOwner extends Fragment {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, PICK_Image);
 
-
-           //     startActivityForResult(Intent.createChooser(intent,"Select"),PICK_Image);
+                Log.d("Image path:","Here we are!");
 
             }
         });
 
+    }
+
+    public static String encodeToBase64(Bitmap image) {
+        Bitmap immagex=image;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        immagex.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] b = baos.toByteArray();
+        String imageEncoded = Base64.encodeToString(b, Base64.DEFAULT);
+
+        Log.e("LOOK", imageEncoded);
+        return imageEncoded;
     }
 
     @Override
@@ -164,8 +175,11 @@ public class HouseOwner extends Fragment {
 
         if (requestCode == PICK_Image && resultCode == RESULT_OK && data != null){
 
-            Uri uri = data.getData();
+
+            uri = data.getData();
+            Log.d("Image path: ", uri.toString());
             imageView.setImageURI(uri);
+
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
                 imageView.setImageBitmap(bitmap);
@@ -177,41 +191,22 @@ public class HouseOwner extends Fragment {
         }
     }
 
-  /*  private void uploadImage() {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,75,byteArrayOutputStream);
-        byte[] imageInByte = byteArrayOutputStream.toByteArray();
+    @NonNull
+    private RequestBody createPartFromString (String param) {
+        return RequestBody.create(MultipartBody.FORM,param);
+    }
 
-        String encodedImg  = Base64.encodeToString(imageInByte, Base64.DEFAULT);
-*/
-
-/*
-        Call<ImgResponse> call = ImageRetrofit.getInstance().getApi().uploadImage(encodedImg);
-        call.enqueue(new Callback<ImgResponse>() {
-            @Override
-            public void onResponse(Call<ImgResponse> call, Response<ImgResponse> response) {
-
-            Toast.makeText(getActivity(), response.body().getPhoto1(), Toast.LENGTH_SHORT).show();
-
-            if (response.isSuccessful()){
-
-            }
-
-            else{}
-
-            }
-
-            @Override
-            public void onFailure(Call<ImgResponse> call, Throwable t) {
-
-                Toast.makeText(getActivity(),"Failed",Toast.LENGTH_SHORT).show();
+  /*  @NonNull
+    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri){
 
 
+        File file1 = FileUtils.getFile(getActivity(), fileUri);
+        RequestBody requestBody1 = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(fileUri)),
+                file1
+        );
+        return MultipartBody.Part.createFormData(partName, file1.getName(), requestBody1);
+    }*/
 
-            }
-        });*/
-
-    //}
 
 
 
@@ -224,7 +219,24 @@ public class HouseOwner extends Fragment {
         roomPostRequest.setPhone_number(d.getText().toString());
         roomPostRequest.setLocation(e.getText().toString());
         roomPostRequest.setPrice(f.getText().toString());
-        //roomPostRequest.setPhoto1(i.toString());
+        roomPostRequest.setPhoto1(i.toString());
+
+
+        InputStream imageStream = null;
+        try {
+            imageStream = getActivity().getContentResolver().openInputStream(uri);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+        String encodedImageData = encodeToBase64(yourSelectedImage);
+        roomPostRequest.setPhoto1(encodedImageData);
+
+        Log.d("Image path", encodedImageData);
+
+        roomPostRequest.setPhoto1(encodedImageData);
+
+
        //
         if (g.isChecked()){
                 internet = true;
@@ -238,28 +250,53 @@ public class HouseOwner extends Fragment {
         roomPostRequest.setParking(parking);
 
 
-        SharedPreferences sp = getContext().getSharedPreferences("secret", Context.MODE_PRIVATE);
-        String token = sp.getString("token","");
-        Log.i("lalala", "Token: " + token);
+
         Map<String, String> params = new HashMap<String, String>();
         params.put("Content-Type", "application/json");
         SharedPreferences p = getActivity().getSharedPreferences("secret", Context.MODE_PRIVATE);
-        String tokens = p.getString("token", "");
+        String token = p.getString("token", "");
         params.put("Authorization", "Token " + token);
 
+/*
 
-        Call<RoomPostResponse> RoomPostRsp = ApiPost.roomPost().postRooms(params, roomPostRequest);
+        File file = new File(filePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
+
+        MultipartBody.Part part =  MultipartBody.Part.createFormData("newimage", file.getName(), requestBody);
+
+        RequestBody imagedata = RequestBody.create(MediaType.parse("text/plain"),"New");
+
+        Retrofit retrofit = ApiPost.getRetrofit();
+        RoomPost roomPost  = retrofit.create(RoomPost.class);*/
+     //   Call cll = roomPost.postRooms(part, imagedata);
+
+/*
+
+       Map<String, RequestBody> partMap = new HashMap<>();
+        partMap.put("title",createPartFromString(a.getText().toString()));
+        partMap.put("description",createPartFromString(b.getText().toString()));
+        partMap.put("email",createPartFromString(c.getText().toString()));
+        partMap.put("phone_number",createPartFromString(d.getText().toString()));
+        partMap.put("location",createPartFromString(e.getText().toString()));
+        partMap.put("price",createPartFromString(f.getText().toString()));
+        partMap.put("internet",createPartFromString(g.getText().toString()));
+        partMap.put("parking",createPartFromString(h.getText().toString()));
+       // partMap.put("photo1",createPartFromString(i.getText().toString()));
+
+
+*/
+
+
+       Call<RoomPostResponse> RoomPostRsp = ApiPost.roomPost().postRooms(params, /*part, imagedata,*/ roomPostRequest);
+     //   Call<RoomPostResponse> RoomPostRsp = ApiPost.roomPost().postRooms(partMap,);
         RoomPostRsp.enqueue(new Callback<RoomPostResponse>() {
             @Override
             public void onResponse(Call<RoomPostResponse> call, Response<RoomPostResponse> response) {
+               // Log.i("name", "pst: " + roomPostRequest);
                 if (response.isSuccessful()){
 
 
-//                            Log.i("login", "Token: " + token);
-
-
-
-                    Toast.makeText(getActivity(), "Sending", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Sending", Toast.LENGTH_LONG).show();
 
     }
                 else { Toast.makeText(getActivity(),"Failed to add rooms",Toast.LENGTH_LONG).show();}
@@ -272,11 +309,15 @@ public class HouseOwner extends Fragment {
                 Toast.makeText(getActivity(),"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
 
             }
-        });{
+        });
+
+
 
     }
 
-    }}
+
+
+    }
 
 
 

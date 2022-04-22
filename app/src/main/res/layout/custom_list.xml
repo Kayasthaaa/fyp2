@@ -31,7 +31,7 @@
             android:layout_height="151dp"
             android:layout_marginLeft="185dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/wallpaper" />
+            android:src="@drawable/bed" />
 
         <TextView
             android:id="@+id/textViewRecy1"

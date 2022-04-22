@@ -220,13 +220,18 @@
 
             <TextView
                 android:id="@+id/descR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
                 android:layout_marginTop="255dp"
                 android:fontFamily="@font/zen"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
                 android:text="R "
                 android:textColor="@color/black"
+                android:autoSizePresetSizes="@array/autosize_text_sizes"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="2dp"
+                android:autoSizeTextType="uniform"
                 android:textSize="20dp" />
 
             <View
@@ -234,7 +239,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="295dp"
+                android:layout_marginTop="305dp"
                 android:layout_marginRight="25dp"
                 android:background="?android:attr/listDivider" />
 
@@ -361,12 +366,17 @@
 
             <TextView
                 android:id="@+id/EmailR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="210dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="175dp"
                 android:layout_marginTop="515dp"
                 android:fontFamily="@font/zen"
+                android:autoSizePresetSizes="@array/autosize_text_sizes"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="Er"
+                android:autoSizeTextType="uniform"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -375,7 +385,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="555dp"
+                android:layout_marginTop="570dp"
                 android:fontFamily="@font/zen"
                 android:text="Number       :"
                 android:textColor="@color/black"
@@ -386,7 +396,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="595dp"
+                android:layout_marginTop="610dp"
                 android:fontFamily="@font/zen"
                 android:text="Date Added :"
                 android:textColor="@color/black"
@@ -397,7 +407,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
-                android:layout_marginTop="555dp"
+                android:layout_marginTop="570dp"
                 android:fontFamily="@font/zen"
                 android:text="R"
                 android:textColor="@color/black"
@@ -408,7 +418,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
-                android:layout_marginTop="595dp"
+                android:layout_marginTop="610dp"
                 android:fontFamily="@font/zen"
                 android:text="Er"
                 android:textColor="@color/black"

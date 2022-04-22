@@ -5,6 +5,9 @@ plugins {
 android {
     compileSdk 31
     buildToolsVersion "31.0.0"
+    dexOptions {
+        javaMaxHeapSize "4G"
+    }
 
     defaultConfig {
         applicationId "com.example.fyp"

@@ -1,12 +1,14 @@
 package com.example.fyp.Profiles;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
@@ -23,6 +25,12 @@ public class Profile extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private Fragment adapter;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

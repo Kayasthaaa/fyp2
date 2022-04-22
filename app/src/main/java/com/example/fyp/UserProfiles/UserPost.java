@@ -13,7 +13,8 @@ import retrofit2.http.POST;
 public interface UserPost {
 
     @POST("profile")
-    Call<UserProfResponse> postProfile (@HeaderMap Map<String, String> Token, @Body UserProfRquest userProfRquest);
+    Call<UserProfResponse> postProfile (/*@HeaderMap Map<String, String> Token, */@Body UserProfRquest userProfRquest);
+
 
 
 }
