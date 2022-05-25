@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:paddingLeft="40dp"
-            android:text="Full Name"
+            android:text="UserName"
             android:textColor="#c2c2c2"
             android:layout_marginTop="35dp"
             android:textSize="15dp"
@@ -75,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="30dp"
-
             app:layout_constraintBottom_toTopOf="@id/Email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.538"
@@ -112,90 +111,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Email" />
-
-
-
-        <!-- <TextView
-             android:id="@+id/age"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginTop="4dp"
-             android:fontFamily="@font/poppins_semibold"
-             android:paddingLeft="41dp"
-             android:text="Age"
-             android:textColor="#c2c2c2"
-             android:textSize="15dp"
-             app:layout_constraintBottom_toTopOf="@id/editAge"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.0"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/editNumber" />
-
-         <EditText
-             android:id="@+id/editAge"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="35dp"
-             android:layout_marginRight="30dp"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.5"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/age" />
-
-         <TextView
-             android:id="@+id/Address"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginTop="4dp"
-             android:fontFamily="@font/poppins_semibold"
-             android:paddingLeft="41dp"
-             android:text="Addresss"
-             android:textColor="#c2c2c2"
-             android:textSize="15dp"
-             app:layout_constraintBottom_toTopOf="@id/editAddress"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.0"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/editAge" />
-
-         <EditText
-             android:id="@+id/editAddress"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="35dp"
-             android:layout_marginRight="30dp"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.5"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/Address" />
-
-         <TextView
-             android:id="@+id/Occupation"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginTop="4dp"
-             android:fontFamily="@font/poppins_semibold"
-             android:paddingLeft="41dp"
-             android:text="Occupation"
-             android:textColor="#c2c2c2"
-             android:textSize="15dp"
-             app:layout_constraintBottom_toTopOf="@id/editOccupation"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.0"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@id/editAddress" />
-
-         <EditText
-             android:id="@+id/editOccupation"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="35dp"
-             android:layout_marginRight="30dp"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.5"
-             app:layout_constraintStart_toStartOf="parent"
-
-             app:layout_constraintTop_toBottomOf="@id/Occupation" /> !-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

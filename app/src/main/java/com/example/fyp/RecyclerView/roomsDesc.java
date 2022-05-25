@@ -1,16 +1,23 @@
-package com.example.fyp;
+package com.example.fyp.RecyclerView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.fyp.R;
 
 public class roomsDesc extends AppCompatActivity {
 
     private TextView sup,identity, name,address, description, garage, net,email,pnum,Apost,Pdate;
     private ImageView imageView;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,21 @@ public class roomsDesc extends AppCompatActivity {
         Apost.setText(getIntent().getStringExtra("poster"));
         Pdate.setText(getIntent().getStringExtra("created"));
 
+        ImageView im = findViewById(R.id.backArrow);
+        im.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(roomsDesc.this, HomeActivity.class));
+            }
+        });
+
+        button = (Button) findViewById(R.id.aa);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(roomsDesc.this, "Your Response Has been Recorded", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
     }

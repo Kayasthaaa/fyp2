@@ -1,12 +1,6 @@
-package com.example.fyp.Profiles;
+package com.example.fyp.Profiles.HouseOwners;
 
-import android.media.Image;
-import android.widget.ImageView;
-
-import com.google.gson.annotations.SerializedName;
-
-public class RoomPostRequest {
-
+public class RoomPostResponse {
 
     private String title;
     private String description;
@@ -14,13 +8,10 @@ public class RoomPostRequest {
     private String phone_number;
     private String location;
     private String price;
-    private boolean internet;
-    private boolean parking;
-
-    @SerializedName("photo1")
-    String photo1;
-
+    private String internet;
+    private String parking;
     private String token;
+    private String photo1;
 
     public String getTitle() {
         return title;
@@ -70,19 +61,19 @@ public class RoomPostRequest {
         this.price = price;
     }
 
-    public boolean getInternet() {
+    public String getInternet() {
         return internet;
     }
 
-    public void setInternet(boolean internet) {
+    public void setInternet(String internet) {
         this.internet = internet;
     }
 
-    public boolean getParking() {
+    public String getParking() {
         return parking;
     }
 
-    public void setParking(boolean parking) {
+    public void setParking(String parking) {
         this.parking = parking;
     }
 
@@ -101,4 +92,6 @@ public class RoomPostRequest {
     public void setPhoto1(String photo1) {
         this.photo1 = photo1;
     }
+
 }
+

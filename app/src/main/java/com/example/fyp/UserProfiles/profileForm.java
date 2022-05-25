@@ -2,7 +2,9 @@ package com.example.fyp.UserProfiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,10 +15,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.fyp.AppLogin.MainActivity;
+import com.example.fyp.AppSignIn.SignIn;
 import com.example.fyp.R;
+import com.example.fyp.RecyclerView.HomeActivity;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -30,9 +39,10 @@ public class profileForm extends AppCompatActivity {
     CircleImageView circleImageView,circleImageView2;
     private static final int PICK_Image=10;
 
-    EditText Uname,Add,Num;
-    RadioButton r1,r2;
+    EditText Uname,Add,Num,Gen;
+    //RadioButton r1,r2;
     Button btn;
+   // RadioGroup Rg;
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -52,15 +62,21 @@ public class profileForm extends AppCompatActivity {
         Uname = findViewById(R.id.UserEdit);
         Add = findViewById(R.id.AddressEdit);
         Num = findViewById(R.id.NumEdit);
-        r1 = findViewById(R.id.rd1);
+        Gen = findViewById(R.id.EdtGender);
+       /* r1 = findViewById(R.id.rd1);
         r2 = findViewById(R.id.rd2);
+        Rg = findViewById(R.id.rg);*/
+
+
 
         btn = findViewById(R.id.Submit);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (TextUtils.isEmpty(Uname.getText().toString()) || TextUtils.isEmpty(Add.getText().toString()) || TextUtils.isEmpty(Num.getText())){
+                profile();
+
+                /*if (TextUtils.isEmpty(Uname.getText().toString()) || TextUtils.isEmpty(Add.getText().toString()) || TextUtils.isEmpty(Num.getText())){
 
                     Toast.makeText(profileForm.this, "Please fill all the details", Toast.LENGTH_LONG).show();
                 }
@@ -68,7 +84,57 @@ public class profileForm extends AppCompatActivity {
                 else {
                     Toast.makeText(profileForm.this, "We will be posting data to server!", Toast.LENGTH_LONG).show();
                     User();
+                }*/
+            }
+        });
+
+    }
+
+    public void profile(){
+
+        UserProfRquest userProfRquest = new UserProfRquest();
+        userProfRquest.setFullname(Uname.getText().toString());
+        userProfRquest.setLocation(Add.getText().toString());
+        userProfRquest.setPhone_number(Num.getText().toString());
+        userProfRquest.setGender(Gen.getText().toString());
+       // userProfRquest.setGender(r1.getText().toString());
+       // userProfRquest.setGender(r2.getText().toString());
+
+
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Content-Type", "application/json");
+        SharedPreferences p = profileForm.this.getSharedPreferences("secret", Context.MODE_PRIVATE);
+        String token = p.getString("token", "");
+        params.put("Authorization", "Token " + token);
+
+        Call<UserProfResponse> userProfResponseCall = UserApi.userPost().userProfile(params,userProfRquest);
+        userProfResponseCall.enqueue(new Callback<UserProfResponse>() {
+            @Override
+            public void onResponse(Call<UserProfResponse> call, Response<UserProfResponse> response) {
+                if (response.isSuccessful()){
+
+
+
+                    Toast.makeText(profileForm.this,"Welcome",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(profileForm.this, SignIn.class));
+                  //  Animatoo.animateSlideLeft(MainActivity.this);
+
                 }
+
+                else {
+                    Toast.makeText(profileForm.this,"Login Failed, Please try Again",Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserProfResponse> call, Throwable t) {
+
+                Toast.makeText(profileForm.this,"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+
+
             }
         });
 
@@ -87,38 +153,6 @@ public class profileForm extends AppCompatActivity {
 
 }
 
-private void User(){
-
-        UserProfRquest userProfRquest = new UserProfRquest();
-        userProfRquest.setUsername(Uname.getText().toString());
-        userProfRquest.setLocation(Add.getText().toString());
-        userProfRquest.setPhone_number(Num.getText().toString());
-        userProfRquest.setMale(r1.getText().toString());
-        userProfRquest.setFemale(r2.getText().toString());
-
-    Log.d("MyLog", "User() method!");
-
-    /*Call<UserProfResponse> userProfResponseCall = UserApi.userPost().postProfile(userProfRquest);
-    userProfResponseCall.enqueue(new Callback<UserProfResponse>() {
-        @Override
-        public void onResponse(Call<UserProfResponse> call, Response<UserProfResponse> response) {
-            if (response.isSuccessful()){
-                Toast.makeText(profileForm.this, "Sending", Toast.LENGTH_LONG).show();
-            }
-
-            else { Toast.makeText(profileForm.this,"Failed to add rooms",Toast.LENGTH_LONG).show();}
-
-        }
-
-        @Override
-        public void onFailure(Call<UserProfResponse> call, Throwable t) {
-
-            Toast.makeText(profileForm.this,"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-
-        }
-    });*/
-
-}
 
 
 

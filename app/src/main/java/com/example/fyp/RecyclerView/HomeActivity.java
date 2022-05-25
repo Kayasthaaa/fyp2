@@ -2,7 +2,6 @@ package com.example.fyp.RecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +14,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -24,11 +22,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.fyp.AppLogin.MainActivity;
 import com.example.fyp.Favourites;
 import com.example.fyp.Profiles.Profile;
 import com.example.fyp.R;
-import com.example.fyp.roomsDesc;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -45,12 +41,10 @@ public class HomeActivity extends AppCompatActivity{
 
     RecyclerView recyclerView;
     List<Lists> lst;
-    //private  static  String JSON_URL = "https://jsonplaceholder.typicode.com/todos";
 
     private  static  String JSON_URL = "http://10.0.2.2:8000/api/rooms";
     Adapter adapter;
     BottomNavigationView bottomNavigationView;
-   // public static String token = Sess.get;
 
 
     @Override
@@ -112,8 +106,6 @@ public class HomeActivity extends AppCompatActivity{
 
     }
 
-
-
     private  void filter(String text){
         ArrayList<Lists> filteredList = new ArrayList<>();
 
@@ -150,8 +142,6 @@ public class HomeActivity extends AppCompatActivity{
                         lists.setTle(jsonObject.getString("poster").toString());
                         lists.setCrt(jsonObject.getString("created").toString());
 
-                    //    lists.setMail(jsonObject.getString("mail").toString());
-
 
                         lst.add(lists);
 
@@ -163,7 +153,6 @@ public class HomeActivity extends AppCompatActivity{
                 }
 
                  recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-              //  recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
                 adapter = new Adapter(getApplicationContext(), lst, new Adapter.ItemClickListsner() {
                     @Override
                     public void onItemClick(Lists lst) {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9EAEA"
-    tools:context=".Profiles.ProfileDisplay"
+    tools:context=".Profiles.userProfileDisplay.ProfileDisplay"
 
 
     >
@@ -14,46 +14,82 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cd"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="55dp"
+        android:layout_marginRight="40dp"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@id/left"
+        app:layout_constraintBottom_toTopOf="@id/Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="65dp"
+            android:background="@drawable/customtext"
+            android:fontFamily="@font/zen"
+            android:visibility="invisible"
+            android:hint="Ex: Name"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/proName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="65dp"
             android:fontFamily="@font/zen"
-            android:text="Prajesh kayastha"
+            android:text="Rajesh kayastha"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/proAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="105dp"
+            android:text=","
+            android:textSize="20dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="65dp"
+            android:fontFamily="@font/zen"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/EdtAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="245dp"
+            android:layout_marginTop="65dp"
+            android:visibility="invisible"
+            android:background="@drawable/customtext"
+            android:fontFamily="@font/zen"
+            android:hint="Ex: 21"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/Age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="245dp"
+            android:layout_marginTop="65dp"
             android:fontFamily="@font/zen"
             android:text="21"
             android:textColor="@color/black"
             android:textSize="20dp" />
-
-
     </androidx.cardview.widget.CardView>
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginBottom="130dp"
@@ -64,68 +100,186 @@
         app:layout_constraintRight_toRightOf="@id/cd"
         app:layout_constraintTop_toTopOf="@id/cd" />
 
+    <EditText
+        android:id="@+id/EdtAddress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/customtext"
+        android:visibility="invisible"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:hint="Please enter your Address"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/Gend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cd" />
+
+    <TextView
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/customtext1"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:text="Address"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/Gend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cd" />
+
+
+    <EditText
+        android:id="@+id/EGend"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:visibility="invisible"
+        android:background="@drawable/customtext"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:hint="Please enter your Gender"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Address" />
+
+    <TextView
+        android:id="@+id/Gend"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/customtext1"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:text="Gender"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Address" />
+
+    <EditText
+        android:id="@+id/Enum"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:visibility="invisible"
+        android:background="@drawable/customtext"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:hint="Please enter your number"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Gend" />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/customtext1"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/black"
+        android:text="98764432"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Gend" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/left"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="25dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@id/log"
-        android:layout_marginRight="15dp"
         app:layout_constraintEnd_toStartOf="@id/right"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
-        app:layout_constraintTop_toBottomOf="@id/cd"
-        >
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:lottie_rawRes="@raw/fav"
-        android:layout_marginRight="15dp"
-        app:lottie_autoPlay="true"
-        android:layout_marginBottom="25dp"
-        app:lottie_loop="true"
-        />
+        app:layout_constraintTop_toBottomOf="@id/num">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="50dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/fav" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Favourites"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="@color/yellow"
-            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="6dp"
             android:fontFamily="@font/zen"
-            android:layout_marginTop="100dp"
-            />
+            android:paddingTop="10dp"
+            android:text="My Favourites"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/right"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="25dp"
-       android:layout_marginBottom="35dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/log"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toEndOf="@id/left"
-        app:layout_constraintTop_toBottomOf="@id/cd">
+        app:layout_constraintTop_toBottomOf="@id/num">
 
-
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie2"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="50dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/fav" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="6dp"
             android:fontFamily="@font/zen"
-            android:text="My Listings"
+            android:paddingTop="10dp"
+            android:text="My Room Lists"
             android:textAlignment="center"
             android:textColor="@color/yellow"
             android:textSize="20dp"
@@ -134,53 +288,60 @@
     </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/log"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginRight="43dp"
-        android:backgroundTint="@color/white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toTopOf="@id/lo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/left" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/lo1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="43dp"
-        android:backgroundTint="@color/white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-        app:layout_constraintTop_toBottomOf="@id/log"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/post"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingTop="7dp"
+        android:text="Post"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias=".55"/>
+        app:layout_constraintTop_toBottomOf="@id/right"
+        app:layout_constraintVertical_bias=".3" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/lo2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="43dp"
-        android:backgroundTint="@color/white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp"
-       app:layout_constraintTop_toBottomOf="@id/lo1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/done"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingTop="7dp"
+        android:text="Log-out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias=".55"/>
+        app:layout_constraintTop_toBottomOf="@id/right"
+        app:layout_constraintVertical_bias=".3" />
+
+    <ImageView
+        android:id="@+id/edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:layout_constraintStart_toStartOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="@+id/img"
+        app:layout_constraintTop_toTopOf="@+id/img"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        android:elevation="10dp"
+        android:layout_marginLeft="150dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

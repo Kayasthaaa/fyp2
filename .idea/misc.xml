@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15648148148148147" />
+        <entry key="app/src/main/res/drawable/LogoHome_background.xml" value="0.1296875" />
         <entry key="app/src/main/res/drawable/change.xml" value="0.2640625" />
         <entry key="app/src/main/res/drawable/custom.xml" value="0.19722222222222222" />
         <entry key="app/src/main/res/drawable/custom_all.xml" value="0.26666666666666666" />
@@ -14,7 +15,9 @@
         <entry key="app/src/main/res/drawable/customcheck.xml" value="0.11944444444444445" />
         <entry key="app/src/main/res/drawable/customimg.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/drawable/customtext.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/drawable/customtext1.xml" value="0.2598958333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.16018518518518518" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.23796296296296296" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.1" />
@@ -28,26 +31,29 @@
         <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.1425925925925926" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.2324074074074074" />
         <entry key="app/src/main/res/layout/activity_SignIn.xml" value="0.24791666666666667" />
-        <entry key="app/src/main/res/layout/activity_favourites.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_favourites.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_fifth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_forth.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_my_listings.xml" value="0.2453125" />
+        <entry key="app/src/main/res/layout/activity_my_room_desc.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/activity_profile_form.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/activity_profile_form2.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/activity_rooms_desc.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.2545454545454545" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.22327898550724637" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_third.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_list.xml" value="0.23876404494382023" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_house_owner.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/layout/fragment_profile_display.xml" value="0.21739130434782608" />
+        <entry key="app/src/main/res/layout/fragment_profile_display.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_tenant.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/mylistingscustom.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.25" />
       </map>
     </option>

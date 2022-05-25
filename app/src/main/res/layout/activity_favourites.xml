@@ -7,7 +7,95 @@
     android:layout_height="match_parent"
     tools:context=".Favourites">
 
+<!--
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="My Favourites"
+    android:textSize="30dp"
+    android:fontFamily="@font/nato"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    android:textAlignment="center"
+    />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="25dp"
+        android:backgroundTint="#EDEDED"
+        android:layout_marginRight="25dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="13dp"
+        app:layout_constraintVertical_bias=".1"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/fav"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ImageRecy"
+            android:layout_width="160dp"
+            android:layout_height="151dp"
+            android:layout_marginLeft="185dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/bed" />
+
+        <TextView
+            android:id="@+id/textViewRecy1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="1 BHK"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewRecy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="2123"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textViewRecy3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="129dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Nakkhipot, Lalitpur"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -1,7 +1,4 @@
-package com.example.fyp.Profiles;
-
-import com.example.fyp.AppLogin.Login;
-import com.example.fyp.Profiles.RoomPost;
+package com.example.fyp.Profiles.HouseOwners;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

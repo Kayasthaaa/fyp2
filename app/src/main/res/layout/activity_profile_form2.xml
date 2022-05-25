@@ -67,7 +67,7 @@
         android:layout_marginRight="115dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Username"
+        android:text="Full Name"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@id/UserEdit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +82,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/customtext"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@id/Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +163,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/NumEdit" />
 
-    <RadioGroup
+
+    <EditText
+        android:id="@+id/EdtGender"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/customtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@id/Submit"
+        app:layout_constraintTop_toBottomOf="@id/Gender"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--  <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -202,7 +218,7 @@
             app:layout_constraintStart_toEndOf="@id/rd1"
             app:layout_constraintTop_toBottomOf="@id/Gender" />
 
-    </RadioGroup>
+    </RadioGroup>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Submit"
@@ -215,10 +231,10 @@
         android:textAllCaps="false"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/EdtGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rg" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/arrow"

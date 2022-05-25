@@ -13,13 +13,14 @@ public class Lists {
     private String prc;
     private String net;
     private String garage;
+    private String mimage;
 
     public Lists(){
 
     }
     public Lists(String id,String Name, String poster_id,
                  String tle,String crt,String des, String mail, String pnumber,
-                 String Address,String prc, String net, String garage){
+                 String Address,String prc, String net, String garage, String mimage){
         this.id = id;
         this.Name = Name;
         this.poster_id = poster_id;
@@ -32,6 +33,7 @@ public class Lists {
         this.prc = prc;
         this.net = net;
         this.garage = garage;
+        this.mimage = mimage;
     }
 
     public String getId() {
@@ -128,5 +130,13 @@ public class Lists {
 
     public void setGarage(String garage) {
         this.garage = garage;
+    }
+
+    public String getMimage() {
+        return mimage;
+    }
+
+    public void setMimage(String mimage) {
+        this.mimage = mimage;
     }
 }

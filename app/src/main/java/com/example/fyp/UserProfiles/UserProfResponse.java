@@ -2,20 +2,21 @@ package com.example.fyp.UserProfiles;
 
 public class UserProfResponse {
 
-    private String username;
+    private String fullname;
     private String phone_number;
     private String location;
     private String photo1;
     private String Token;
-    private String male;
-    private String female;
+    private String Gender;
+   // private String male;
+  //  private String female;
 
-    public String getUsername() {
-        return username;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPhone_number() {
@@ -50,7 +51,15 @@ public class UserProfResponse {
         Token = token;
     }
 
-    public String getMale() {
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
+        Gender = gender;
+    }
+
+    /*public String getMale() {
         return male;
     }
 
@@ -64,5 +73,7 @@ public class UserProfResponse {
 
     public void setFemale(String female) {
         this.female = female;
-    }
+    }*/
+
+
 }

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fyp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.inflater = LayoutInflater.from(ctx);
         this.lst = lst;
         this.mItemListener = itemClickListsner;
-
-        //  this.mOnNoteListener = onNoteListsner;
 
     }
 
@@ -56,7 +55,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.number.setText(lst.get(position).getPnumber());
         holder.post.setText(lst.get(position).getTle());
         holder.date.setText(lst.get(position).getCrt());
-
+      //  Picasso.get().load(lst.get(position).getMimage()).into(holder.ImgView);
 
         holder.itemView.setOnClickListener(view -> {
             mItemListener.onItemClick(lst.get(position));
@@ -78,7 +77,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView id, name, add, prc, description, park, net, post,email,number,date;
         ImageView ImgView;
         //  CardView cardView;
@@ -98,6 +97,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             email = itemView.findViewById(R.id.textViewRecy9);
             number = itemView.findViewById(R.id.textViewRecy10);
             date = itemView.findViewById(R.id.textViewRecy11);
+            ImgView = itemView.findViewById(R.id.ImageRecy);
 
         }
     }

@@ -2,14 +2,17 @@ package com.example.fyp.AppSignIn;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +33,10 @@ import retrofit2.Response;
 public class SignIn extends AppCompatActivity {
     Button button;
   //  private  static  String JSON_URL = "http://10.0.2.2:8000/api/signup";
-    EditText u, p;
+    EditText name, password;
    TextView lgn;
+    //public static String token;
+
 
 
     @Override
@@ -40,7 +45,7 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        p = (EditText) findViewById(R.id.editEmail);
+      /*  p = (EditText) findViewById(R.id.editEmail);
         u = (EditText) findViewById(R.id.editFullName);
 
         button = (Button) findViewById(R.id.BtnSign);
@@ -62,7 +67,10 @@ public class SignIn extends AppCompatActivity {
 
                 h.sendEmptyMessageDelayed(0, 1500); // 1500 is time in miliseconds
             }
-        });
+        });*/
+
+        name = findViewById(R.id.editFullName);
+        password = findViewById(R.id.editEmail);
 
         lgn = (TextView) findViewById(R.id.lgn);
         lgn.setOnClickListener(new View.OnClickListener() {
@@ -73,14 +81,74 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        button = (Button) findViewById(R.id.BtnSign);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (TextUtils.isEmpty(name.getText().toString()) || TextUtils.isEmpty(password.getText().toString())) {
+
+
+                    Toast.makeText(SignIn.this, "Username or Password is Empty", Toast.LENGTH_LONG).show();
+                }
+
+                else {
+                    SignUp();
+                }
+
+
+            }
+        });
 
     }
 
-    private void userSignUp(){
+    public void SignUp(){
+
+        SignUpRequest signUpRequest = new SignUpRequest();
+        signUpRequest.setUsername(name.getText().toString());
+        signUpRequest.setPassword(password.getText().toString());
+
+        Call<SignUpResponse> signUpResponseCall = RetrofitSign.sign().userSign(signUpRequest);
+        signUpResponseCall.enqueue(new Callback<SignUpResponse>() {
+            @Override
+            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+
+                if (response.isSuccessful()){
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+
+                            Toast.makeText(SignIn.this, "Welcome", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignIn.this,profileForm.class));
+                            Animatoo.animateSlideLeft(SignIn.this);
+
+                        }
+
+                    }, 500);
+
+                }
+                else {
+                    Toast.makeText(SignIn.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SignUpResponse> call, Throwable t) {
+
+                Toast.makeText(SignIn.this,"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+   /* private void userSignUp(){
 
         String username = u.getText().toString().trim();
         String password = p.getText().toString().trim();
-
 
 
         Log.d("response", "user: " + username);
@@ -107,6 +175,9 @@ public class SignIn extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+
+
                 try {
                   //  String s = response.body().string();
                     if(response.body() != null ) {
@@ -126,7 +197,7 @@ public class SignIn extends AppCompatActivity {
                 Toast.makeText(SignIn.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }*/
 
     }
 

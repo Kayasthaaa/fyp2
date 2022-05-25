@@ -34,7 +34,7 @@
       android:id="@+id/Motto"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Here is a quote"
+      android:text="A Room For Everyone"
       android:fontFamily="@font/akroim"
       android:textSize="25dp"
       android:textStyle="bold"

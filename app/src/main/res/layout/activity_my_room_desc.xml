@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true"
-    tools:context=".RecyclerView.roomsDesc">
+    tools:context=".MyRoomListings.myRoomDesc">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:layout_marginBottom="15dp">
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/imgage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/bed"
@@ -32,10 +32,10 @@
             android:background="@drawable/ic_baseline_arrow_back_ios_24"
             android:elevation="3dp"
             android:rotationY="-13"
-            app:layout_constraintBottom_toBottomOf="@id/img"
+            app:layout_constraintBottom_toBottomOf="@id/imgage"
             app:layout_constraintEnd_toStartOf="@id/addFav"
-            app:layout_constraintStart_toStartOf="@id/img"
-            app:layout_constraintTop_toTopOf="@id/img"
+            app:layout_constraintStart_toStartOf="@id/imgage"
+            app:layout_constraintTop_toTopOf="@id/imgage"
             app:layout_constraintVertical_bias="0.096" />
 
         <ImageView
@@ -45,8 +45,8 @@
             android:background="@drawable/ic_baseline_favorite_border_24"
             app:layout_constraintStart_toEndOf="@id/backArrow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/img"
-            app:layout_constraintBottom_toBottomOf="@id/img"
+            app:layout_constraintTop_toTopOf="@id/imgage"
+            app:layout_constraintBottom_toBottomOf="@id/imgage"
             android:layout_marginLeft="275dp"
             android:elevation="3dp"
             app:layout_constraintVertical_bias=".1"
@@ -65,13 +65,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img">
+            app:layout_constraintTop_toBottomOf="@id/imgage">
 
             <TextView
-                android:id="@+id/roomID"
+                android:id="@+id/RoomID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/zen"
                 android:text="Basic Informations"
@@ -101,7 +101,7 @@
                 app:layout_constraintTop_toBottomOf="@id/roomID" />
 
             <TextView
-                android:id="@+id/Idt"
+                android:id="@+id/ERooms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
@@ -134,7 +134,7 @@
                 app:layout_constraintTop_toBottomOf="@id/Idt" />
 
             <TextView
-                android:id="@+id/Name"
+                android:id="@+id/EPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
@@ -166,7 +166,7 @@
                 app:layout_constraintTop_toBottomOf="@id/Name" />
 
             <TextView
-                android:id="@+id/Add"
+                android:id="@+id/EAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
@@ -219,12 +219,12 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/descR"
+                android:id="@+id/EDesc"
                 android:layout_marginLeft="175dp"
                 android:layout_marginTop="255dp"
                 android:fontFamily="@font/zen"
                 android:layout_width="210dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:text="R "
                 android:textColor="@color/black"
                 android:autoSizePresetSizes="@array/autosize_text_sizes"
@@ -272,7 +272,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/ParkR"
+                android:id="@+id/EPark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="125dp"
@@ -294,7 +294,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/InternetR"
+                android:id="@+id/EInternet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="315dp"
@@ -354,7 +354,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/nameR"
+                android:id="@+id/EName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
@@ -365,7 +365,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/EmailR"
+                android:id="@+id/EMail"
                 android:layout_width="210dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="175dp"
@@ -403,7 +403,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/NumR"
+                android:id="@+id/RNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"
@@ -414,7 +414,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/PostR"
+                android:id="@+id/EPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="175dp"

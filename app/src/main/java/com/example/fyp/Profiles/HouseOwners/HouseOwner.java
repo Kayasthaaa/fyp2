@@ -1,4 +1,4 @@
-package com.example.fyp.Profiles;
+package com.example.fyp.Profiles.HouseOwners;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.os.FileUtils;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +31,6 @@ import com.example.fyp.R;
 //import com.example.fyp.RetrofitRooms;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,13 +38,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class HouseOwner extends Fragment {
 
@@ -59,7 +54,6 @@ public class HouseOwner extends Fragment {
 
     private Bitmap bitmap;
 
-    //   String title,description,email,phone_number,location,price,internet,parking;
 
     EditText a,b,c,d,e,f;
     CheckBox g,h;
@@ -126,18 +120,16 @@ public class HouseOwner extends Fragment {
             public void onClick(View view) {
 
 
-                rooms();
-
-             /* if (TextUtils.isEmpty(a.getText().toString()) || TextUtils.isEmpty(b.getText().toString())
+              if (TextUtils.isEmpty(a.getText().toString()) || TextUtils.isEmpty(b.getText().toString())
                       || TextUtils.isEmpty(c.getText().toString()) || TextUtils.isEmpty(d.getText().toString()) || TextUtils.isEmpty(e.getText().toString())
                       || TextUtils.isEmpty(f.getText().toString())){
 
                   Toast.makeText(getActivity(), "Please fill all the details", Toast.LENGTH_LONG).show();
               }
               else{
-                 // rooms();
+                  rooms();
 
-              }*/
+              }
             }
         });
 
@@ -191,24 +183,6 @@ public class HouseOwner extends Fragment {
         }
     }
 
-    @NonNull
-    private RequestBody createPartFromString (String param) {
-        return RequestBody.create(MultipartBody.FORM,param);
-    }
-
-  /*  @NonNull
-    private MultipartBody.Part prepareFilePart(String partName, Uri fileUri){
-
-
-        File file1 = FileUtils.getFile(getActivity(), fileUri);
-        RequestBody requestBody1 = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(fileUri)),
-                file1
-        );
-        return MultipartBody.Part.createFormData(partName, file1.getName(), requestBody1);
-    }*/
-
-
-
 
     private void rooms() {
 
@@ -257,35 +231,6 @@ public class HouseOwner extends Fragment {
         String token = p.getString("token", "");
         params.put("Authorization", "Token " + token);
 
-/*
-
-        File file = new File(filePath);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
-
-        MultipartBody.Part part =  MultipartBody.Part.createFormData("newimage", file.getName(), requestBody);
-
-        RequestBody imagedata = RequestBody.create(MediaType.parse("text/plain"),"New");
-
-        Retrofit retrofit = ApiPost.getRetrofit();
-        RoomPost roomPost  = retrofit.create(RoomPost.class);*/
-     //   Call cll = roomPost.postRooms(part, imagedata);
-
-/*
-
-       Map<String, RequestBody> partMap = new HashMap<>();
-        partMap.put("title",createPartFromString(a.getText().toString()));
-        partMap.put("description",createPartFromString(b.getText().toString()));
-        partMap.put("email",createPartFromString(c.getText().toString()));
-        partMap.put("phone_number",createPartFromString(d.getText().toString()));
-        partMap.put("location",createPartFromString(e.getText().toString()));
-        partMap.put("price",createPartFromString(f.getText().toString()));
-        partMap.put("internet",createPartFromString(g.getText().toString()));
-        partMap.put("parking",createPartFromString(h.getText().toString()));
-       // partMap.put("photo1",createPartFromString(i.getText().toString()));
-
-
-*/
-
 
        Call<RoomPostResponse> RoomPostRsp = ApiPost.roomPost().postRooms(params, /*part, imagedata,*/ roomPostRequest);
      //   Call<RoomPostResponse> RoomPostRsp = ApiPost.roomPost().postRooms(partMap,);
@@ -296,7 +241,8 @@ public class HouseOwner extends Fragment {
                 if (response.isSuccessful()){
 
 
-                    Toast.makeText(getContext(), "Sending", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Your add was posted successfully", Toast.LENGTH_LONG).show();
+
 
     }
                 else { Toast.makeText(getActivity(),"Failed to add rooms",Toast.LENGTH_LONG).show();}

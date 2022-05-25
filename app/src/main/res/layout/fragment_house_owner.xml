@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true"
-    tools:context=".Profiles.HouseOwner"
+    tools:context=".Profiles.HouseOwners.HouseOwner"
     tools:ignore="SpeakableTextPresentCheck">
 
 
@@ -283,12 +283,12 @@
             android:id="@+id/rad2"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="9dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/zen"
             android:paddingLeft="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@id/t2"
             app:layout_constraintTop_toBottomOf="@id/rad1" />
 
@@ -312,7 +312,6 @@
             android:src="@drawable/ic_baseline_add_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/pick"
-
             app:layout_constraintTop_toBottomOf="@id/rad2">
 
         </de.hdodenhof.circleimageview.CircleImageView>

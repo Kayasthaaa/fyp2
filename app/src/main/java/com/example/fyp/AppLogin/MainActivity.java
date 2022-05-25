@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         loginRequest.setPassword(pass.getText().toString());
 
         Call<LoginResponse> loginResponseCall = ApiClient.login().userLogin(loginRequest);
-        //Call<LoginResponse> Data=  ApiClient.login().getData(authHeader);
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
 
 
-                          //  LoginResponse loginResponse = response.body();
 
                             String token = response.body().getToken().toString();
 
@@ -105,32 +103,17 @@ public class MainActivity extends AppCompatActivity {
                             edit.putString("token", token);
                             edit.commit();
 
-                    //        Log.i("shareddd", "Token: " + sharedPreferences);
-
-
-                            /*String tokenFromShared = sharedPreferences.getString("token", "N/A");
-                            Log.i("Login", "Shared File Token: " +  tokenFromShared);*/
-
+                            Toast.makeText(MainActivity.this,"Welcome",Toast.LENGTH_LONG).show();
                             startActivity(new Intent(MainActivity.this, HomeActivity.class));
                             Animatoo.animateSlideLeft(MainActivity.this);
 
 
-
-                            /*Toast.makeText(MainActivity.this, "connection successful" +
-                                    response.body().getToken(), Toast.LENGTH_SHORT).show();
-                            token = response.body().getToken();*/
-
-
-                            /*Preferences p = new Preferences();
-
-                            p.setAccessToken(MainActivity.this, token);
-*/
                         }
                     },500);
                 }
                 else {
 
-                    Toast.makeText(MainActivity.this,"Login Failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Login Failed, Please try Again",Toast.LENGTH_LONG).show();
                 }
             }
 

@@ -54,7 +54,7 @@
             android:layout_marginTop="25dp"
             android:fontFamily="@font/poppins_semibold"
             android:paddingLeft="40dp"
-            android:text="Email"
+            android:text="Username"
             android:textColor="#c2c2c2"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@id/EditEmail"

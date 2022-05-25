@@ -29,7 +29,8 @@ public class UserApi {
 
     public static UserPost userPost(){
         UserPost userPost = retrofit().create(UserPost.class);
-        return userPost();
+
+        return userPost;
     }
 
 }
