@@ -8,9 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
-import android.widget.ViewSwitcher;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,10 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fyp.R;
-import com.example.fyp.RecyclerView.Adapter;
-import com.example.fyp.RecyclerView.HomeActivity;
-import com.example.fyp.RecyclerView.Lists;
-import com.example.fyp.RecyclerView.roomsDesc;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +36,7 @@ public class MyListings extends AppCompatActivity {
     List<roomLists> list;
     private  static  String JSON_URL = "http://10.0.2.2:8000/api/myrooms";
     roomAdapter roomAdapter;
+    ImageView imageView;
 
 
     @Override
@@ -53,7 +50,13 @@ public class MyListings extends AppCompatActivity {
         myLists();
 
 
-
+        imageView = (ImageView) findViewById(R.id.arrow);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void myLists(){
@@ -81,6 +84,7 @@ public class MyListings extends AppCompatActivity {
                             listings.setPhone_number(responseJSONObject.getString("phone_number").toString());
                             listings.setTitle(responseJSONObject.getString("poster").toString());
                             listings.setCreated(responseJSONObject.getString("created").toString());
+                            listings.setId(responseJSONObject.getString("id").toString());
 
                             list.add(listings);
 
@@ -104,6 +108,10 @@ public class MyListings extends AppCompatActivity {
                         intent.putExtra("phone_number", list.getPhone_number());
                         intent.putExtra("poster",list.getTitle());
                         intent.putExtra("created",list.getCreated());
+                        intent.putExtra("id",list.getId());
+
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        MyListings.this.startActivity(intent);
 
 
                     }
@@ -134,4 +142,12 @@ public class MyListings extends AppCompatActivity {
         requestQueue.add(arrayRequest);
 
 
-    }}
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
+}

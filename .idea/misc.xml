@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/custom_all.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/custom_button1.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/drawable/custom_button3.xml" value="0.25885416666666666" />
         <entry key="app/src/main/res/drawable/custom_edit.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/customback.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/drawable/customcheck.xml" value="0.11944444444444445" />
@@ -38,7 +39,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_my_listings.xml" value="0.2453125" />
-        <entry key="app/src/main/res/layout/activity_my_room_desc.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_my_room_desc.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/activity_profile_form.xml" value="0.21875" />
         <entry key="app/src/main/res/layout/activity_profile_form2.xml" value="0.24583333333333332" />
@@ -55,6 +56,8 @@
         <entry key="app/src/main/res/layout/fragment_tenant.xml" value="0.25" />
         <entry key="app/src/main/res/layout/mylistingscustom.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1296875" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1296875" />
       </map>
     </option>
   </component>

@@ -1,18 +1,13 @@
 package com.example.fyp.AppSignIn;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +18,6 @@ import com.example.fyp.AppLogin.MainActivity;
 import com.example.fyp.R;
 import com.example.fyp.UserProfiles.profileForm;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -121,7 +113,7 @@ public class SignIn extends AppCompatActivity {
 
 
                             Toast.makeText(SignIn.this, "Welcome", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignIn.this,profileForm.class));
+                            startActivity(new Intent(SignIn.this,MainActivity.class));
                             Animatoo.animateSlideLeft(SignIn.this);
 
                         }

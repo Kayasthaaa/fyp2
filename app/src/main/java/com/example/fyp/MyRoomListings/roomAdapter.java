@@ -23,10 +23,10 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.ViewHolder> {
     private OnClickListener onClickListener;
 
 
-    public roomAdapter(Context ctx, List<roomLists> list, OnClickListener onClickListener) {
+    public roomAdapter(Context ctx, List<roomLists> list, OnClickListener clickListener) {
         this.layoutInflater = LayoutInflater.from(ctx);
         this.list = list;
-        this.onClickListener = onClickListener;
+        this.onClickListener = clickListener;
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.fyp.RecyclerView;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fyp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
@@ -22,6 +25,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     LayoutInflater inflater;
     List<Lists> lst;
     private ItemClickListsner mItemListener;
+
 
     public Adapter(Context ctx, List<Lists> lst, ItemClickListsner itemClickListsner) {
         this.inflater = LayoutInflater.from(ctx);
@@ -55,7 +59,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.number.setText(lst.get(position).getPnumber());
         holder.post.setText(lst.get(position).getTle());
         holder.date.setText(lst.get(position).getCrt());
-      //  Picasso.get().load(lst.get(position).getMimage()).into(holder.ImgView);
+
+        Picasso.with(inflater.getContext())
+                .load(lst.get(position).getMimage())
+                .placeholder(R.drawable.bed)
+                .fit()
+                .into(holder.ImgView);
 
         holder.itemView.setOnClickListener(view -> {
             mItemListener.onItemClick(lst.get(position));
@@ -76,6 +85,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         lst = filteredList;
         notifyDataSetChanged();
     }
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView id, name, add, prc, description, park, net, post,email,number,date;

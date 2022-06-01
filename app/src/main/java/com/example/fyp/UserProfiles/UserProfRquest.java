@@ -8,8 +8,7 @@ public class UserProfRquest {
     private String photo1;
     private String Token;
     private String Gender;
-  /*  private String male;
-    private String female;*/
+    private String Age;
 
     public String getFullname() {
         return fullname;
@@ -55,23 +54,17 @@ public class UserProfRquest {
         return Gender;
     }
 
+    public String getAge() {
+        return Age;
+    }
+
+    public void setAge(String age) {
+        Age = age;
+    }
+
     public void setGender(String gender) {
         Gender = gender;
     }
 
-    /*public String getMale() {
-        return male;
-    }
 
-    public void setMale(String male) {
-        this.male = male;
-    }
-
-    public String getFemale() {
-        return female;
-    }
-
-    public void setFemale(String female) {
-        this.female = female;
-    }*/
 }

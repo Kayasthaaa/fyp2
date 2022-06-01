@@ -174,64 +174,50 @@
         android:background="@drawable/customtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintBottom_toTopOf="@id/Submit"
         app:layout_constraintTop_toBottomOf="@id/Gender"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!--  <RadioGroup
-        android:id="@+id/rg"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/Age"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/Gender"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Age"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="70dp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EdtGender" />
+
+    <EditText
+        android:id="@+id/EdtAge"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/customtext"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/Age"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rd1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Male"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/rd2"
-            android:layout_marginLeft="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Gender" />
-
-        <RadioButton
-            android:id="@+id/rd2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Female"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:translationX="200dp"
-            android:translationY="-57dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintStart_toEndOf="@id/rd1"
-            app:layout_constraintTop_toBottomOf="@id/Gender" />
-
-    </RadioGroup>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Submit"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/custom_button"
         android:fontFamily="@font/nato"
         android:text="Submit"
+        app:layout_constraintTop_toBottomOf="@id/EdtAge"
         android:textAllCaps="false"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/EdtGender"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent" />

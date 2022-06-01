@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,6 +30,7 @@ import com.example.fyp.Favourites;
 import com.example.fyp.Profiles.Profile;
 import com.example.fyp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +47,7 @@ public class HomeActivity extends AppCompatActivity{
     RecyclerView recyclerView;
     List<Lists> lst;
 
+
     private  static  String JSON_URL = "http://10.0.2.2:8000/api/rooms";
     Adapter adapter;
     BottomNavigationView bottomNavigationView;
@@ -52,8 +58,6 @@ public class HomeActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
         AutoCompleteTextView editText = findViewById(R.id.search);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -75,6 +79,7 @@ public class HomeActivity extends AppCompatActivity{
         recyclerView = findViewById(R.id.recy);
         lst = new ArrayList<>();
         extractList ();
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigator);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -106,6 +111,8 @@ public class HomeActivity extends AppCompatActivity{
 
     }
 
+
+
     private  void filter(String text){
         ArrayList<Lists> filteredList = new ArrayList<>();
 
@@ -115,8 +122,10 @@ public class HomeActivity extends AppCompatActivity{
             }
 
         }
+
         adapter.filterList(filteredList);
     }
+
 
     private void extractList() {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -131,6 +140,7 @@ public class HomeActivity extends AppCompatActivity{
 
                         Lists lists = new Lists();
 
+                        lists.setId(jsonObject.getString("id").toString());
                         lists.setName(jsonObject.getString("title").toString());
                         lists.setAddress(jsonObject.getString("location").toString());
                         lists.setPrc(jsonObject.getString("price").toString());
@@ -141,7 +151,11 @@ public class HomeActivity extends AppCompatActivity{
                         lists.setPnumber(jsonObject.getString("phone_number").toString());
                         lists.setTle(jsonObject.getString("poster").toString());
                         lists.setCrt(jsonObject.getString("created").toString());
+                        lists.setMimage(jsonObject.getString("photo1").toString());
 
+                       String p = jsonObject.getString("photo1").toString();
+
+                       Log.e("kk","msg"+p);
 
                         lst.add(lists);
 
@@ -158,6 +172,7 @@ public class HomeActivity extends AppCompatActivity{
                     public void onItemClick(Lists lst) {
                       //  startActivity(new Intent(HomeActivity.this,roomsDesc.class));
                         Intent intent = new Intent(HomeActivity.this, roomsDesc.class);
+                        intent.putExtra("id",lst.getId());
                         intent.putExtra("title",lst.getName());
                         intent.putExtra("price",lst.getPrc());
                         intent.putExtra("location",lst.getAddress());
@@ -168,6 +183,7 @@ public class HomeActivity extends AppCompatActivity{
                         intent.putExtra("phone_number",lst.getPnumber());
                         intent.putExtra("poster",lst.getTle());
                         intent.putExtra("created",lst.getCrt());
+                        intent.putExtra("photo1",lst.getMimage());
 
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         HomeActivity.this.startActivity(intent);

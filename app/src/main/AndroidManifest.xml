@@ -16,16 +16,15 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MyRoomListings.myRoomDesc"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
         <activity
             android:name=".MyRoomListings.MyListings"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RecyclerView.roomsDesc"
@@ -41,6 +40,13 @@
         <activity
             android:name=".RecyclerView.HomeActivity"
             android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
         </activity>
         <activity
@@ -60,12 +66,15 @@
             android:name=".AppLogin.MainActivity"
             android:exported="true">
 
+
+
         </activity>
         <activity
             android:name=".UserProfiles.profileForm"
             android:exported="true">
 
         </activity>
+
     </application>
 
 </manifest>

@@ -116,6 +116,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/roomID" />
 
+            <TextView
+                android:id="@+id/RId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/zen"
+                android:text="Id"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@id/Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomID" />
+
 
             <TextView
                 android:id="@+id/NameR"
@@ -195,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
-                android:layout_marginTop="215dp"
+                android:layout_marginTop="200dp"
                 android:fontFamily="@font/zen"
                 android:text="Descriptions"
                 android:textColor="@color/black"
@@ -212,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="255dp"
+                android:layout_marginTop="245dp"
                 android:fontFamily="@font/zen"
                 android:text="Description : "
                 android:textColor="@color/black"
@@ -221,10 +237,10 @@
             <TextView
                 android:id="@+id/descR"
                 android:layout_marginLeft="175dp"
-                android:layout_marginTop="255dp"
+                android:layout_marginTop="240dp"
                 android:fontFamily="@font/zen"
-                android:layout_width="210dp"
-                android:layout_height="40dp"
+                android:layout_width="206dp"
+                android:layout_height="60dp"
                 android:text="R "
                 android:textColor="@color/black"
                 android:autoSizePresetSizes="@array/autosize_text_sizes"
@@ -455,25 +471,66 @@
                 android:textStyle="bold" />
 
 
-            <EditText
-                android:id="@+id/tt"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/customtext"
-                android:hint="Report"
-                android:layout_marginTop="730dp"
-                />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/aa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_button"
-                android:layout_marginTop="850dp"
+            <ImageView
+                android:id="@+id/report"
+                android:layout_height="60dp"
+                android:layout_width="60dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="740dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/close"
                 android:text="Report"
                 android:textAllCaps="false"
                 android:textSize="20dp"
                 />
+
+            <EditText
+                android:id="@+id/ReportDesc"
+                android:layout_height="80dp"
+                android:layout_width="340dp"
+                android:layout_marginLeft="30dp"
+                android:paddingLeft="10dp"
+                android:visibility="invisible"
+                android:layout_marginTop="740dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/customtext1"
+                android:hint="Describe Your Complaint"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ReportBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="850dp"
+                android:visibility="invisible"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/custom_button3"
+                android:letterSpacing=".11"
+                android:text="Report"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/CancleBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="850dp"
+                android:visibility="invisible"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/customback"
+                android:letterSpacing=".11"
+                android:text="Cancle"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
 

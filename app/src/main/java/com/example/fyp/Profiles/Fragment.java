@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.fyp.Profiles.HouseOwners.HouseOwner;
-import com.example.fyp.Profiles.userProfileDisplay.ProfileDisplay;
+import com.example.fyp.Profiles.userProfileDisplay.ProfilePatch.ProfileDisplay;
 
 public class Fragment extends FragmentStateAdapter {
     public Fragment(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {

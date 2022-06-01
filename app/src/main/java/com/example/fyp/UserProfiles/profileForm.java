@@ -7,24 +7,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.example.fyp.AppLogin.MainActivity;
 import com.example.fyp.AppSignIn.SignIn;
+import com.example.fyp.Profiles.userProfileDisplay.ProfilePatch.ProfileDisplay;
 import com.example.fyp.R;
-import com.example.fyp.RecyclerView.HomeActivity;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +31,7 @@ public class profileForm extends AppCompatActivity {
     CircleImageView circleImageView,circleImageView2;
     private static final int PICK_Image=10;
 
-    EditText Uname,Add,Num,Gen;
+    EditText Uname,Add,Num,Gen,age;
     //RadioButton r1,r2;
     Button btn;
    // RadioGroup Rg;
@@ -63,6 +55,7 @@ public class profileForm extends AppCompatActivity {
         Add = findViewById(R.id.AddressEdit);
         Num = findViewById(R.id.NumEdit);
         Gen = findViewById(R.id.EdtGender);
+        age = findViewById(R.id.EdtAge);
        /* r1 = findViewById(R.id.rd1);
         r2 = findViewById(R.id.rd2);
         Rg = findViewById(R.id.rg);*/
@@ -97,6 +90,8 @@ public class profileForm extends AppCompatActivity {
         userProfRquest.setLocation(Add.getText().toString());
         userProfRquest.setPhone_number(Num.getText().toString());
         userProfRquest.setGender(Gen.getText().toString());
+        userProfRquest.setAge(age.getText().toString());
+
        // userProfRquest.setGender(r1.getText().toString());
        // userProfRquest.setGender(r2.getText().toString());
 
@@ -117,7 +112,7 @@ public class profileForm extends AppCompatActivity {
 
 
                     Toast.makeText(profileForm.this,"Welcome",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(profileForm.this, SignIn.class));
+                    startActivity(new Intent(profileForm.this, ProfileDisplay.class));
                   //  Animatoo.animateSlideLeft(MainActivity.this);
 
                 }

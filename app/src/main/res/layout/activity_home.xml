@@ -11,8 +11,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-680dp"
         android:src="@drawable/image"
-       android:layout_marginTop="-680dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-  <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,9 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".9"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu"/>
-
-
+        app:menu="@menu/menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

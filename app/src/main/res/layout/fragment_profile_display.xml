@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9EAEA"
-    tools:context=".Profiles.userProfileDisplay.ProfileDisplay"
+    tools:context=".Profiles.userProfileDisplay.ProfilePatch.ProfileDisplay"
 
 
     >
@@ -49,6 +49,17 @@
             android:layout_marginTop="65dp"
             android:fontFamily="@font/zen"
             android:text="Rajesh kayastha"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/userId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="95dp"
+            android:fontFamily="@font/zen"
+            android:text="Id"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -263,15 +274,12 @@
         app:layout_constraintStart_toEndOf="@id/left"
         app:layout_constraintTop_toBottomOf="@id/num">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie2"
+        <ImageView
+            android:id="@+id/lists"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginLeft="2dp"
             android:layout_marginTop="50dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/fav" />
+            android:background="@drawable/list" />
 
         <TextView
             android:layout_width="wrap_content"

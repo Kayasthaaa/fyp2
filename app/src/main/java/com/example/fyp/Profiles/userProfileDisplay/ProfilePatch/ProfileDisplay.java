@@ -1,4 +1,4 @@
-package com.example.fyp.Profiles.userProfileDisplay;
+package com.example.fyp.Profiles.userProfileDisplay.ProfilePatch;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,15 +21,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fyp.AppLogin.MainActivity;
+import com.example.fyp.AppSignIn.SignIn;
 import com.example.fyp.Favourites;
+import com.example.fyp.MyRoomListings.MyListings;
+import com.example.fyp.Profiles.userProfileDisplay.PlaceHolderApi;
+import com.example.fyp.Profiles.userProfileDisplay.profileDetails;
 import com.example.fyp.R;
-import com.example.fyp.RecyclerView.Lists;
+import com.example.fyp.UserProfiles.profileForm;
 
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,11 +42,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class ProfileDisplay extends Fragment {
+public class ProfileDisplay extends Fragment{
 
-    TextView name, age, address, gender, num;
+    TextView name, age, address, gender, num, uId;
     Button btn, btn2;
     EditText eName, eAge, eAdd, eGend, eNum;
+
+    int RoomId;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -93,6 +97,8 @@ public class ProfileDisplay extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+
+
         CardView cardView = view.findViewById(R.id.left);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,12 +109,23 @@ public class ProfileDisplay extends Fragment {
             }
         });
 
+        CardView card = view.findViewById(R.id.right);
+        card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), MyListings.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
 
         name = view.findViewById(R.id.proName);
         age = view.findViewById(R.id.Age);
         address = view.findViewById(R.id.Address);
         gender = view.findViewById(R.id.Gend);
         num = view.findViewById(R.id.num);
+        uId = view.findViewById(R.id.userId);
         btn = view.findViewById(R.id.done);
         btn2 = view.findViewById(R.id.post);
 
@@ -118,6 +135,7 @@ public class ProfileDisplay extends Fragment {
         eAdd = view.findViewById(R.id.EdtAddress);
         eGend = view.findViewById(R.id.EGend);
         eNum = view.findViewById(R.id.Enum);
+
 
 
         ImageView imageView = view.findViewById(R.id.edt);
@@ -151,6 +169,7 @@ public class ProfileDisplay extends Fragment {
                 eNum.setVisibility(View.VISIBLE);
                 btn2.setVisibility(View.VISIBLE);
 
+
             }
         });
 
@@ -173,6 +192,8 @@ public class ProfileDisplay extends Fragment {
                 eNum.setVisibility(View.INVISIBLE);
                 btn2.setVisibility(View.INVISIBLE);
 
+                PatchProfiles();
+
             }
         });
 
@@ -194,36 +215,13 @@ public class ProfileDisplay extends Fragment {
 
             }
         });
-/*
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        PlaceHolderApi placeHolderApi = retrofit.create(PlaceHolderApi.class);
-
-        Call<List<profileDetails>> call = placeHolderApi.getDetails();
-
-        call.enqueue(new Callback<List<profileDetails>>() {
-
-            @Override
-            public void onResponse(Call<List<profileDetails>> call, retrofit2.Response<List<profileDetails>> response) {
-
-                name.setText(response.body().toString());
-
-            }
-
-            @Override
-            public void onFailure(Call<List<profileDetails>> call, Throwable t) {
-                Toast.makeText(getContext(),"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-            }
-        });*/
 
         name.setText("");
         age.setText("");
         address.setText("");
         gender.setText("");
         num.setText("");
+        uId.setText("");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -243,31 +241,92 @@ public class ProfileDisplay extends Fragment {
             @Override
             public void onResponse(Call<List<profileDetails>> call, Response<List<profileDetails>> response) {
                 List<profileDetails> data=response.body();
-                for (int i=0; i<data.size();i++)
+                for (int i=0; i<data.size();i++){
                     name.append(""+data.get(i).getFullname());
 
-                for (int j=0; j<data.size();j++)
-                    age.append(""+data.get(j).getAge());
+                    age.append(""+data.get(i).getAge());
 
-                for (int k=0; k<data.size();k++)
-                    address.append("Address: "+data.get(k).getLocation());
+                    address.append("Address: "+data.get(i).getLocation());
 
-                for (int l=0; l<data.size();l++)
-                    gender.append("Gender: "+data.get(l).getGender());
+                    gender.append("Gender: "+data.get(i).getGender());
 
-                for (int m=0; m<data.size();m++)
-                    num.append("Number: "+data.get(m).getPhone_number());
+                    num.append("Number: "+data.get(i).getPhone_number());
+
+                    uId.append("Id: "+data.get(i).getId());
+
+                    RoomId = Integer.parseInt(data.get(i).getId());}
+
+
+                if(name.getText().toString().isEmpty())
+                {
+                    startActivity(new Intent(getActivity(),profileForm.class));
+                    Animatoo.animateSlideDown(getActivity());
+                }
+
             }
+
+
 
 
             @Override
             public void onFailure(Call<List<profileDetails>> call, Throwable t) {
 
+
+                Log.e("kk","lal"+t);
                 Toast.makeText(getContext(),"Error Cause : "+t,Toast.LENGTH_LONG).show();
             }
         });
 
+
     }
+
+
+
+    private void PatchProfiles(){
+
+
+        ProfilePatchRequest patchRequest = new ProfilePatchRequest();
+        patchRequest.setFullname(eName.getText().toString());
+        patchRequest.setAge(eAge.getText().toString());
+        patchRequest.setLocation(eAdd.getText().toString());
+        patchRequest.setGender(eGend.getText().toString());
+        patchRequest.setPhone_number(eNum.getText().toString());
+
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("Content-Type", "application/json");
+        SharedPreferences p = getActivity().getSharedPreferences("secret", Context.MODE_PRIVATE);
+        String token = p.getString("token", "");
+        params.put("Authorization", "Token " + token);
+
+        Call<ProfilePatchResponse> patchResponseCall = ApiProfilePatch.profilePatch().ProfilePatch(params,RoomId,patchRequest);
+        patchResponseCall.enqueue(new Callback<ProfilePatchResponse>() {
+            @Override
+            public void onResponse(Call<ProfilePatchResponse> call, Response<ProfilePatchResponse> response) {
+
+                if (response.isSuccessful()){
+
+                    Toast.makeText(getActivity(), "Your profile details were updated", Toast.LENGTH_LONG).show();
+
+                }
+
+                else { Toast.makeText(getActivity(),"Failed to update profile",Toast.LENGTH_LONG).show();}
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ProfilePatchResponse> call, Throwable t) {
+
+                Toast.makeText(getActivity(),"Throwable"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+
+    }
+
     }
 
 

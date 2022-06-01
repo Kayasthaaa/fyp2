@@ -1,5 +1,7 @@
 package com.example.fyp.RecyclerView;
 
+import android.net.Uri;
+
 public class Lists {
     private String id;
     private String Name;

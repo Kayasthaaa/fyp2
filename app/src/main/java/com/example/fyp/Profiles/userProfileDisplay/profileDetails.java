@@ -2,8 +2,16 @@ package com.example.fyp.Profiles.userProfileDisplay;
 
 public class profileDetails {
 
-String fullname,location,Gender,Age;
-int phone_number;
+String id,fullname,location,Gender,Age,phone_number;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFullname() {
         return fullname;
@@ -37,11 +45,11 @@ int phone_number;
         Age = age;
     }
 
-    public int getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 }
